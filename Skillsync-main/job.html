@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matches</title>
+    <link rel="stylesheet" href="job.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <h1>Job Matches</h1>
+            <div class="description-box">
+                <p>
+                    Job Matches connects you with relevant employment opportunities based on your skills and experience. 
+                    Explore various job opportunities that suit your profile and enhance your career growth.
+                </p>
+            </div>
+            <div class="button-section">
+                <button id="find-jobs-button" class="btn">Find Best Job Matches</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("find-jobs-button").addEventListener("click", function () {
+            // Redirect to the specified URL when the button is clicked
+            window.location.href = "http://127.0.0.1:5000/";
+
+        });
+    </script>
+</body>
+</html>

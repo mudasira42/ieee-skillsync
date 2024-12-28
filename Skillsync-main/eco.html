@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Demand Skills Map - India</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        #map {
+            height: 100vh; /* Full height of the viewport */
+            width: 100%; /* Full width of the viewport */
+        }
+        .legend {
+            background: white;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+        .skill-demand {
+            display: flex;
+            flex-direction: column;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script>
+        // Initialize the map
+        const map = L.map('map').setView([20.5937, 78.9629], 5); // Centered on India
+
+        // Add a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+
+        // High-demand skills data with specific districts
+        const skillsData = [
+            { name: "Data Science", demand: "High", coordinates: [12.9716, 77.5946], companies: ["Wipro", "Infosys", "Accenture"], description: "High demand for Data Science professionals.", district: "Bangalore Urban" },
+            { name: "Web Development", demand: "High", coordinates: [19.0760, 72.8777], companies: ["TCS", "Cognizant", "Capgemini"], description: "Growing need for web developers.", district: "Mumbai City" },
+            { name: "Cybersecurity", demand: "High", coordinates: [28.6139, 77.2090], companies: ["IBM", "HCL", "Tech Mahindra"], description: "Increasing demand for cybersecurity experts.", district: "Central Delhi" },
+            { name: "Cloud Computing", demand: "High", coordinates: [17.3850, 78.4867], companies: ["Amazon", "Microsoft", "Google"], description: "Growing need for cloud computing professionals.", district: "Hyderabad" },
+            { name: "Artificial Intelligence", demand: "High", coordinates: [12.2958, 76.6394], companies: ["Tech Mahindra", "NVIDIA", "CureMetrix"], description: "High demand for AI specialists.", district: "Mysore" },
+            { name: "Mobile App Development", demand: "High", coordinates: [22.5726, 88.3639], companies: ["Zensar", "Mindtree", "TCS"], description: "Good opportunities for mobile app developers.", district: "Kolkata" },
+            { name: "Blockchain Development", demand: "High", coordinates: [30.7333, 76.7794], companies: ["HashCash Consultants", "Primechain Technologies"], description: "Increasing interest in blockchain technology.", district: "Chandigarh" },
+            { name: "DevOps", demand: "High", coordinates: [19.1822, 84.7490], companies: ["TCS", "Infosys", "Cognizant"], description: "High demand for DevOps professionals.", district: "Khurda" },
+            { name: "UI/UX Design", demand: "High", coordinates: [22.7196, 75.8577], companies: ["Adobe", "Wipro", "Infosys"], description: "Strong demand for UI/UX designers.", district: "Indore" },
+            { name: "Digital Marketing", demand: "High", coordinates: [26.9124, 75.7873], companies: ["Zomato", "Flipkart", "Myntra"], description: "Growing need for digital marketing professionals.", district: "Jaipur" },
+            { name: "Content Writing", demand: "High", coordinates: [28.6139, 77.2090], companies: ["Times Group", "Network18"], description: "High demand for skilled content writers.", district: "Delhi" },
+            { name: "SEO Specialists", demand: "High", coordinates: [13.0827, 80.2707], companies: ["Zoho", "Freshworks"], description: "Growing need for SEO experts.", district: "Chennai" },
+            { name: "Data Analysis", demand: "High", coordinates: [18.5204, 73.8567], companies: ["TCS", "Accenture"], description: "Increasing demand for data analysts.", district: "Pune" },
+            { name: "Network Administration", demand: "High", coordinates: [23.2599, 77.4126], companies: ["Reliance Jio", "Airtel"], description: "Strong demand for network administrators.", district: "Bhopal" },
+            { name: "Game Development", demand: "High", coordinates: [28.7041, 77.1025], companies: ["Nazara Technologies", "Zynga"], description: "High demand for game developers.", district: "Delhi" },
+            { name: "Robotics", demand: "High", coordinates: [12.9716, 77.5946], companies: ["ABB", "Siemens"], description: "Growing interest in robotics.", district: "Bangalore Urban" },
+            { name: "Hardware Engineering", demand: "High", coordinates: [11.0168, 76.9558], companies: ["Intel", "NXP"], description: "Good opportunities for hardware engineers.", district: "Coimbatore" },
+            { name: "Financial Analysis", demand: "High", coordinates: [19.9975, 73.7898], companies: ["Goldman Sachs", "Morgan Stanley"], description: "High demand for financial analysts.", district: "Navi Mumbai" },
+            { name: "Telecom Engineering", demand: "High", coordinates: [22.3048, 73.1812], companies: ["BSNL", "Vodafone"], description: "Strong demand for telecom engineers.", district: "Vadodara" },
+            { name: "PHP Development", demand: "High", coordinates: [23.8103, 90.4125], companies: ["W3Layouts", "SoftServe"], description: "High demand for PHP developers.", district: "Kolkata" },
+            { name: "Ruby on Rails", demand: "High", coordinates: [19.0760, 72.8777], companies: ["ThoughtWorks", "Agile Alliance"], description: "Growing interest in Ruby on Rails.", district: "Mumbai" },
+            { name: "C# Development", demand: "High", coordinates: [12.9716, 77.5946], companies: ["Accenture", "Cognizant"], description: "High demand for C# developers.", district: "Bangalore" },
+            { name: "Java Development", demand: "High", coordinates: [28.6139, 77.2090], companies: ["HCL", "Infosys"], description: "Strong demand for Java developers.", district: "Delhi" },
+            { name: "Database Management", demand: "High", coordinates: [19.0760, 72.8777], companies: ["Oracle", "Microsoft"], description: "High demand for database administrators.", district: "Mumbai" },
+            { name: "Web Security", demand: "High", coordinates: [13.0827, 80.2707], companies: ["QuickHeal", "Palo Alto Networks"], description: "Strong demand for web security specialists.", district: "Chennai" },
+            { name: "3D Modeling", demand: "High", coordinates: [26.9124, 75.7873], companies: ["3DPLM", "D-Cube"], description: "Good opportunities in 3D modeling.", district: "Jaipur" },
+            { name: "IT Support", demand: "High", coordinates: [11.0168, 76.9558], companies: ["HCL", "Wipro"], description: "High demand for IT support professionals.", district: "Coimbatore" },
+            { name: "Artificial Intelligence Research", demand: "High", coordinates: [22.5726, 88.3639], companies: ["Microsoft Research", "NVIDIA"], description: "Growing interest in AI research.", district: "Kolkata" },
+            { name: "System Analysis", demand: "High", coordinates: [21.1702, 72.8311], companies: ["Reliance", "TCS"], description: "High demand for system analysts.", district: "Surat" },
+            { name: "Testing & Quality Assurance", demand: "High", coordinates: [26.8468, 80.9462], companies: ["Cognizant", "Wipro"], description: "Increasing need for QA professionals.", district: "Lucknow" },
+            { name: "Ethical Hacking", demand: "High", coordinates: [19.2183, 84.5229], companies: ["K7 Computing", "QuickHeal"], description: "High demand for ethical hackers.", district: "Bhubaneswar" },
+            { name: "Salesforce Development", demand: "High", coordinates: [12.9716, 77.5946], companies: ["Salesforce", "TCS"], description: "Good opportunities in Salesforce development.", district: "Bangalore Urban" },
+            { name: "IT Consulting", demand: "High", coordinates: [17.3850, 78.4867], companies: ["TCS", "Accenture"], description: "Growing need for IT consultants.", district: "Hyderabad" },
+            { name: "Big Data", demand: "High", coordinates: [18.5204, 73.8567], companies: ["Wipro", "Infosys"], description: "High demand for Big Data professionals.", district: "Pune" },
+            { name: "Game Design", demand: "High", coordinates: [22.5726, 88.3639], companies: ["Nazara Technologies", "Ubisoft"], description: "Growing interest in game design.", district: "Kolkata" },
+            { name: "Augmented Reality", demand: "High", coordinates: [28.5355, 77.3910], companies: ["HoloLab", "Wipro"], description: "Increasing demand for AR specialists.", district: "Noida" },
+            { name: "Machine Learning", demand: "High", coordinates: [19.4326, 84.4220], companies: ["Google", "Amazon"], description: "High demand for machine learning engineers.", district: "Bhubaneswar" },
+            { name: "Hardware Design", demand: "High", coordinates: [19.0760, 72.8777], companies: ["Intel", "Siemens"], description: "Good opportunities for hardware designers.", district: "Mumbai" },
+            { name: "Artificial Intelligence Engineering", demand: "High", coordinates: [22.5726, 88.3639], companies: ["CureMetrix", "NVIDIA"], description: "High demand for AI engineers.", district: "Kolkata" },
+            { name: "Robotics Engineering", demand: "High", coordinates: [18.5204, 73.8567], companies: ["ABB", "KUKA"], description: "Growing demand for robotics engineers.", district: "Pune" },
+            { name: "E-commerce Development", demand: "High", coordinates: [23.8103, 90.4125], companies: ["Flipkart", "Amazon"], description: "High demand for e-commerce developers.", district: "Kolkata" },
+            { name: "Information Security", demand: "High", coordinates: [12.9716, 77.5946], companies: ["Paladion", "Wipro"], description: "Strong demand for information security professionals.", district: "Bangalore Urban" },
+            { name: "Data Engineering", demand: "High", coordinates: [18.5204, 73.8567], companies: ["TCS", "IBM"], description: "Increasing need for data engineers.", district: "Pune" },
+            { name: "Network Security", demand: "High", coordinates: [19.2183, 84.5229], companies: ["CyberSec", "HackerOne"], description: "High demand for network security experts.", district: "Bhubaneswar" },
+            { name: "Project Management", demand: "High", coordinates: [21.1702, 72.8311], companies: ["TCS", "Accenture"], description: "Growing need for project managers.", district: "Surat" }
+        ];
+
+        // Function to add markers to the map
+        skillsData.forEach(skill => {
+            const marker = L.marker(skill.coordinates).addTo(map);
+            marker.bindPopup(`
+                <div class="skill-demand">
+                    <strong>Skill:</strong> ${skill.name}<br>
+                    <strong>Demand:</strong> ${skill.demand}<br>
+                    <strong>Companies:</strong> ${skill.companies.join(", ")}<br>
+                    <strong>District:</strong> ${skill.district}<br>
+                    <p>${skill.description}</p>
+                </div>
+            `);
+        });
+
+        // Legend for the map
+        const legend = L.control({ position: 'topright' });
+
+        legend.onAdd = function () {
+            const div = L.DomUtil.create('div', 'legend');
+            div.innerHTML += '<h4>Skill Demand</h4>';
+            div.innerHTML += '<i style="background: green;"></i> High<br>';
+            return div;
+        };
+
+        legend.addTo(map);
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Background and layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: url('man.png') no-repeat center center fixed; /* Replace with your background image */
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Container for the form */
+.container {
+    display: flex;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    height: 100%; /* Full height */
+}
+
+/* Main content box */
+.content-box {
+    background-color: rgba(255, 255, 255, 0.8); /* White with slight transparency */
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+    max-width: 400px;
+    text-align: center;
+    width: 100%;
+}
+
+/* Form and label styles */
+label, h3 {
+    font-weight: bold;
+    color: #333;
+}
+
+select, .btn {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+/* Button styles */
+.btn {
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}
+
+/* Result message */
+.result-message {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+}

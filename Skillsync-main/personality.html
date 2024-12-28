@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace Personality Test</title>
+    <link rel="stylesheet" href="per.css"> <!-- Link to your CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <h1>Workspace Personality Test</h1>
+            <div class="description-box">
+                <p>
+                    Discover your workspace personality and find suitable job recommendations based on your answers. 
+                    Answer the following questions to get started!
+                </p>
+            </div>
+            <div class="form-section">
+                <form id="personality-test-form">
+                    <!-- Questions -->
+                    <div class="question">
+                        <p>1. How do you prefer to work?</p>
+                        <button type="button" class="option" data-value="3">Independently</button>
+                        <button type="button" class="option" data-value="1">In a team</button>
+                    </div>
+
+                    <div class="question">
+                        <p>2. How do you handle deadlines?</p>
+                        <button type="button" class="option" data-value="3">I thrive under pressure</button>
+                        <button type="button" class="option" data-value="1">I prefer to plan ahead</button>
+                    </div>
+
+                    <div class="question">
+                        <p>3. What is your approach to problem-solving?</p>
+                        <button type="button" class="option" data-value="3">I think outside the box</button>
+                        <button type="button" class="option" data-value="1">I follow established methods</button>
+                    </div>
+
+                    <div class="question">
+                        <p>4. How do you like to communicate?</p>
+                        <button type="button" class="option" data-value="3">Face-to-face</button>
+                        <button type="button" class="option" data-value="1">Email/Chat</button>
+                    </div>
+
+                    <div class="question">
+                        <p>5. What motivates you at work?</p>
+                        <button type="button" class="option" data-value="3">Achieving goals</button>
+                        <button type="button" class="option" data-value="1">Helping others</button>
+                    </div>
+
+                    <div class="question">
+                        <p>6. How do you react to change?</p>
+                        <button type="button" class="option" data-value="3">Embrace it</button>
+                        <button type="button" class="option" data-value="1">Resist it</button>
+                    </div>
+
+                    <div class="question">
+                        <p>7. How do you prefer to manage tasks?</p>
+                        <button type="button" class="option" data-value="3">By prioritizing</button>
+                        <button type="button" class="option" data-value="1">By following a checklist</button>
+                    </div>
+
+                    <div class="question">
+                        <p>8. What kind of work environment do you prefer?</p>
+                        <button type="button" class="option" data-value="3">Dynamic and fast-paced</button>
+                        <button type="button" class="option" data-value="1">Calm and structured</button>
+                    </div>
+
+                    <div class="question">
+                        <p>9. How do you handle criticism?</p>
+                        <button type="button" class="option" data-value="3">I use it for growth</button>
+                        <button type="button" class="option" data-value="1">I find it discouraging</button>
+                    </div>
+
+                    <div class="question">
+                        <p>10. What role do you prefer in a team?</p>
+                        <button type="button" class="option" data-value="3">Leader</button>
+                        <button type="button" class="option" data-value="1">Supporter</button>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Get Your Results</button>
+                </form>
+            </div>
+            <div id="result"></div> <!-- Container for displaying results -->
+        </div>
+    </div>
+
+    <script>
+        // Capture the total scores based on button clicks
+        let scores = [];
+
+        // Handle option button clicks
+        document.querySelectorAll('.option').forEach(button => {
+            button.addEventListener('click', function() {
+                const questionDiv = this.parentElement;
+                const options = questionDiv.querySelectorAll('.option');
+
+                // Remove previous selections
+                options.forEach(opt => opt.classList.remove('selected'));
+                
+                // Add selected class to the clicked button
+                this.classList.add('selected');
+
+                // Store the score
+                const value = parseInt(this.getAttribute('data-value'));
+                const index = Array.from(questionDiv.parentElement.children).indexOf(questionDiv);
+                scores[index] = value;
+            });
+        });
+
+        // Handle form submission
+        document.getElementById('personality-test-form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+
+            // Simple logic to determine personality type and job recommendations based on scores
+            const totalScore = scores.reduce((a, b) => a + b, 0);
+            let personalityType = '';
+            let jobRecommendations = [];
+
+            // Determine personality type and job recommendations
+            if (totalScore <= 10) {
+                personalityType = 'Supportive Type';
+                jobRecommendations = ['Customer Service Representative', 'Human Resources Specialist', 'Social Worker'];
+            } else if (totalScore <= 20) {
+                personalityType = 'Analytical Type';
+                jobRecommendations = ['Data Analyst', 'Research Scientist', 'Financial Analyst'];
+            } else if (totalScore <= 30) {
+                personalityType = 'Creative Type';
+                jobRecommendations = ['Graphic Designer', 'Marketing Specialist', 'Content Creator'];
+            } else {
+                personalityType = 'Leadership Type';
+                jobRecommendations = ['Project Manager', 'Team Leader', 'Executive Director'];
+            }
+
+            // Display results
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `<h2>Your Personality Type: ${personalityType}</h2>`;
+            resultDiv.innerHTML += `<h3>Recommended Jobs:</h3>`;
+            jobRecommendations.forEach(job => {
+                resultDiv.innerHTML += `<p>${job}</p>`;
+            });
+        });
+    </script>
+</body>
+</html>

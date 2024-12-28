@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Suitability Checker</title>
+    <link rel="stylesheet" href="decent.css"> <!-- Link to CSS file -->
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <h1>Job Suitability Checker</h1>
+            <p>Select a job and choose your skills to get job recommendations based on your personality.</p>
+
+            <!-- Job Selection -->
+            <label for="job-select">Choose a Job:</label>
+            <select id="job-select" onchange="showSkills()">
+                <option value="">Select a job</option>
+                <option value="developer">Software Developer</option>
+                <option value="designer">Graphic Designer</option>
+                <option value="marketer">Digital Marketer</option>
+                <option value="teacher">Teacher</option>
+                <option value="manager">Project Manager</option>
+            </select>
+
+            <!-- Skills Selection -->
+            <div id="skills-container" style="display: none;">
+                <h3>Select Your Skills:</h3>
+                <div id="skills-list"></div>
+                <button class="btn" onclick="checkSuitability()">Check Suitability</button>
+            </div>
+
+            <!-- Result Message -->
+            <div id="result-message" class="result-message"></div>
+        </div>
+    </div>
+
+    <script src="decent.js"></script> <!-- Link to JavaScript file -->
+</body>
+</html>

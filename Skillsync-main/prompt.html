@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prompt Skill Lab</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            color: white;
+            background-color: #28a745;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .certificate {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #e0ffe0;
+            border: 1px solid #28a745;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .project {
+            display: none;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prompt Skill Lab</h1>
+        <h2>Select Your Experience Level</h2>
+
+        <button class="btn" onclick="selectExperience('fresher')">Fresher</button>
+        <button class="btn" onclick="selectExperience('experienced')">Experienced</button>
+
+        <div id="projectSection" class="project">
+            <h2 id="projectTitle"></h2>
+            <p id="projectDescription"></p>
+            <textarea id="projectInput" rows="5" cols="60" placeholder="Write your project code or details here..."></textarea><br>
+            <button class="btn" onclick="submitProject()">Submit Project</button>
+        </div>
+
+        <div id="certificate" class="certificate">
+            <h3>Congratulations!</h3>
+            <p>You have successfully completed the project.</p>
+            <button class="btn" onclick="downloadCertificate()">Download Certificate</button>
+        </div>
+    </div>
+
+    <script>
+        function selectExperience(level) {
+            const projectSection = document.getElementById('projectSection');
+            const projectTitle = document.getElementById('projectTitle');
+            const projectDescription = document.getElementById('projectDescription');
+
+            if (level === 'fresher') {
+                projectTitle.innerText = "Real-World Project for Freshers";
+                projectDescription.innerText = "You are required to create a simple web application. Focus on HTML, CSS, and JavaScript.";
+            } else {
+                projectTitle.innerText = "Complete the Half-Done Project";
+                projectDescription.innerText = "Finish the provided web application project that has missing features and bugs.";
+            }
+
+            projectSection.style.display = 'block'; // Show the project section
+        }
+
+        function submitProject() {
+            const projectInput = document.getElementById('projectInput').value;
+            if (projectInput) {
+                alert("Project submitted successfully!");
+                showCertificate();
+            } else {
+                alert("Please enter your project details.");
+            }
+        }
+
+        function showCertificate() {
+            document.getElementById('certificate').style.display = 'block';
+        }
+
+        function downloadCertificate() {
+            const link = document.createElement('a');
+            link.download = 'certificate.pdf';
+            link.href = 'data:application/pdf;base64,' + btoa('Certificate of Completion\n\nYou have completed the project successfully!');
+            link.click();
+        }
+    </script>
+</body>
+</html>

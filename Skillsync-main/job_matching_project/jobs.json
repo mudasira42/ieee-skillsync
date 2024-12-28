@@ -1,0 +1,205 @@
+[
+    {
+        "title": "Full Stack Developer",
+        "company": "Tech Solutions",
+        "location": "Bangalore, Karnataka",
+        "skills": ["JavaScript", "React", "Node.js", "SQL"],
+        "description": "Looking for a full stack developer with experience in JavaScript and React. The candidate should also be proficient in Node.js and SQL."
+    },
+    {
+        "title": "Data Scientist",
+        "company": "Data Corp",
+        "location": "Hyderabad, Telangana",
+        "skills": ["Python", "Machine Learning", "SQL", "Data Analysis"],
+        "description": "Seeking a data scientist with strong skills in Python and machine learning. Experience with SQL and data analysis is a plus."
+    },
+    {
+        "title": "Frontend Developer",
+        "company": "Web Innovations",
+        "location": "Pune, Maharashtra",
+        "skills": ["HTML", "CSS", "JavaScript", "React"],
+        "description": "Join our team as a frontend developer. We are looking for someone with experience in HTML, CSS, and JavaScript."
+    },
+    {
+        "title": "Backend Developer",
+        "company": "Cloud Services",
+        "location": "Mumbai, Maharashtra",
+        "skills": ["Java", "Spring", "RESTful APIs", "SQL"],
+        "description": "We need a backend developer with expertise in Java and Spring Framework. Familiarity with RESTful APIs and SQL is essential."
+    },
+    {
+        "title": "Digital Marketing Specialist",
+        "company": "Marketing Agency",
+        "location": "Chennai, Tamil Nadu",
+        "skills": ["SEO", "Content Marketing", "Social Media", "Analytics"],
+        "description": "Looking for a digital marketing specialist to enhance our online presence. Skills in SEO, content marketing, and analytics are required."
+    },
+    {
+        "title": "Project Manager",
+        "company": "Business Solutions",
+        "location": "Gurgaon, Haryana",
+        "skills": ["Agile", "Project Management", "Communication"],
+        "description": "Seeking a project manager with experience in Agile methodologies and strong communication skills."
+    },
+    {
+        "title": "UX/UI Designer",
+        "company": "Creative Agency",
+        "location": "Noida, Uttar Pradesh",
+        "skills": ["Adobe XD", "Sketch", "Prototyping", "User Research"],
+        "description": "Join us as a UX/UI Designer. Proficiency in Adobe XD and Sketch is a must, along with experience in user research."
+    },
+    {
+        "title": "DevOps Engineer",
+        "company": "Cloud Technologies",
+        "location": "Bangalore, Karnataka",
+        "skills": ["AWS", "Docker", "Kubernetes", "CI/CD"],
+        "description": "We are hiring a DevOps engineer with experience in AWS, Docker, and Kubernetes. Familiarity with CI/CD practices is preferred."
+    },
+    {
+        "title": "Cybersecurity Analyst",
+        "company": "SecureNet",
+        "location": "Mumbai, Maharashtra",
+        "skills": ["Network Security", "Risk Assessment", "Firewalls"],
+        "description": "Looking for a cybersecurity analyst with knowledge in network security and risk assessment. Experience with firewalls is an advantage."
+    },
+    {
+        "title": "Mobile App Developer",
+        "company": "App Development Inc.",
+        "location": "Hyderabad, Telangana",
+        "skills": ["Java", "Kotlin", "iOS", "Swift"],
+        "description": "Seeking a mobile app developer with experience in Java and Kotlin for Android development and Swift for iOS."
+    },
+    {
+        "title": "Business Analyst",
+        "company": "Consulting Firm",
+        "location": "Delhi",
+        "skills": ["Data Analysis", "SQL", "Business Intelligence"],
+        "description": "Join our team as a Business Analyst. Strong skills in data analysis and SQL are required."
+    },
+    {
+        "title": "Game Developer",
+        "company": "Gaming Studio",
+        "location": "Bangalore, Karnataka",
+        "skills": ["Unity", "C#", "Game Design"],
+        "description": "We are looking for a game developer with experience in Unity and C#. A strong understanding of game design principles is needed."
+    },
+    {
+        "title": "Quality Assurance Engineer",
+        "company": "Software Solutions",
+        "location": "Chennai, Tamil Nadu",
+        "skills": ["Manual Testing", "Automation Testing", "Selenium"],
+        "description": "Looking for a QA engineer with experience in both manual and automation testing, specifically with Selenium."
+    },
+    {
+        "title": "Network Engineer",
+        "company": "Tech Services",
+        "location": "Pune, Maharashtra",
+        "skills": ["Cisco", "Network Security", "Troubleshooting"],
+        "description": "We need a network engineer skilled in Cisco technologies, network security, and troubleshooting."
+    },
+    {
+        "title": "Data Analyst",
+        "company": "Finance Corp",
+        "location": "Mumbai, Maharashtra",
+        "skills": ["Excel", "Python", "Data Visualization"],
+        "description": "Join us as a data analyst. Proficiency in Excel and Python, along with data visualization skills, is essential."
+    },
+    {
+        "title": "Technical Writer",
+        "company": "Tech Documentation",
+        "location": "Gurgaon, Haryana",
+        "skills": ["Technical Writing", "Documentation", "Editing"],
+        "description": "Seeking a technical writer to create and edit technical documentation. Strong writing skills are required."
+    },
+    {
+        "title": "System Administrator",
+        "company": "IT Services",
+        "location": "Delhi",
+        "skills": ["Linux", "Windows Server", "Networking"],
+        "description": "Looking for a system administrator with experience in Linux and Windows Server. Networking skills are a plus."
+    },
+    {
+        "title": "Cloud Architect",
+        "company": "Cloud Solutions",
+        "location": "Bangalore, Karnataka",
+        "skills": ["AWS", "Azure", "Cloud Architecture"],
+        "description": "We are hiring a cloud architect with experience in AWS and Azure cloud services."
+    },
+    {
+        "title": "Research Scientist",
+        "company": "Pharmaceutical Corp",
+        "location": "Hyderabad, Telangana",
+        "skills": ["Research", "Data Analysis", "Biotechnology"],
+        "description": "Seeking a research scientist with skills in data analysis and biotechnology."
+    },
+    {
+        "title": "Sales Executive",
+        "company": "Retail Group",
+        "location": "Mumbai, Maharashtra",
+        "skills": ["Sales", "Negotiation", "Customer Service"],
+        "description": "Looking for a sales executive with strong negotiation and customer service skills."
+    },
+    {
+        "title": "Video Editor",
+        "company": "Media Company",
+        "location": "Delhi",
+        "skills": ["Video Editing", "Adobe Premiere", "Final Cut Pro"],
+        "description": "Join our team as a video editor. Proficiency in Adobe Premiere and Final Cut Pro is required."
+    },
+    {
+        "title": "Graphic Designer",
+        "company": "Creative Studio",
+        "location": "Chennai, Tamil Nadu",
+        "skills": ["Photoshop", "Illustrator", "Design"],
+        "description": "We are looking for a graphic designer skilled in Photoshop and Illustrator."
+    },
+    {
+        "title": "SEO Specialist",
+        "company": "Marketing Agency",
+        "location": "Gurgaon, Haryana",
+        "skills": ["SEO", "Keyword Research", "Content Marketing"],
+        "description": "Seeking an SEO specialist with expertise in keyword research and content marketing."
+    },
+    {
+        "title": "Blockchain Developer",
+        "company": "Crypto Solutions",
+        "location": "Bangalore, Karnataka",
+        "skills": ["Blockchain", "Ethereum", "Smart Contracts"],
+        "description": "We need a blockchain developer experienced with Ethereum and smart contracts."
+    },
+    {
+        "title": "Artificial Intelligence Engineer",
+        "company": "AI Innovations",
+        "location": "Hyderabad, Telangana",
+        "skills": ["Machine Learning", "Python", "AI"],
+        "description": "Looking for an AI engineer with a strong background in machine learning and Python."
+    },
+    {
+        "title": "Software Tester",
+        "company": "Tech Testing",
+        "location": "Pune, Maharashtra",
+        "skills": ["Manual Testing", "Automation Testing"],
+        "description": "Join us as a software tester. Experience in both manual and automation testing is preferred."
+    },
+    {
+        "title": "HR Manager",
+        "company": "HR Solutions",
+        "location": "Delhi",
+        "skills": ["Recruitment", "Employee Relations", "HR Policies"],
+        "description": "We are seeking an HR manager with experience in recruitment and employee relations."
+    },
+    {
+        "title": "Content Writer",
+        "company": "Content Agency",
+        "location": "Chennai, Tamil Nadu",
+        "skills": ["Content Writing", "SEO", "Research"],
+        "description": "Looking for a content writer with skills in SEO and research."
+    },
+    {
+        "title": "Salesforce Developer",
+        "company": "CRM Solutions",
+        "location": "Bangalore, Karnataka",
+        "skills": ["Salesforce", "Apex", "Visualforce"],
+        "description": "Seeking a Salesforce developer with experience in Apex and Visualforce."
+    }
+]

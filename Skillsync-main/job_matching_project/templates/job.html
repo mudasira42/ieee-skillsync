@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matches</title>
+    <link rel="stylesheet" href="job.css">
+</head>
+<body>
+    <div class="container">
+        <div class="content-box">
+            <h1>Job Matches</h1>
+            <div class="description-box">
+                <p>
+                    Job Matches connects you with relevant employment opportunities based on your skills and experience. 
+                    Upload your resume to find jobs that suit your profile and enhance your career growth.
+                </p>
+            </div>
+            <div class="form-section">
+                <div class="profile-container">
+                    <h2>Upload Your Resume</h2>
+                    <form id="upload-form" enctype="multipart/form-data">
+                        <label for="resume-upload">Choose File:</label>
+                        <input type="file" id="resume-upload" name="resume" accept=".pdf,.doc,.docx" required>
+                        <button type="submit" class="btn">Find Best Job Matches</button>
+                    </form>
+                </div>
+            </div>
+            <div id="job-results"></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("upload-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.getElementById("resume-upload");
+
+            if (!fileInput.files[0]) {
+                alert("Please upload a resume file.");
+                return;
+            }
+
+            formData.append("resume", fileInput.files[0]);
+
+            try {
+                const response = await fetch("/", {
+                    method: "POST",
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    const error = await response.json();
+                    alert(`Error: ${error.error || "Unknown error occurred."}`);
+                    return;
+                }
+
+                const jobs = await response.json();
+                displayJobs(jobs);
+            } catch (err) {
+                console.error("Error fetching job matches:", err);
+                alert("An error occurred. Please try again.");
+            }
+        });
+
+        function displayJobs(jobs) {
+            const jobResults = document.getElementById("job-results");
+            jobResults.innerHTML = "";
+
+            if (jobs.length === 0) {
+                jobResults.innerHTML = "<p>No matches found. Update your resume or skills for better results.</p>";
+                return;
+            }
+
+            jobs.forEach(job => {
+                jobResults.innerHTML += `
+                    <div class="job-card">
+                        <h2>${job.title}</h2>
+                        <p><strong>Company:</strong> ${job.company}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>Skills Required:</strong> ${job.skills.join(", ")}</p>
+                        <p>${job.description}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

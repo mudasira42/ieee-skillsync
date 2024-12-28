@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Matches</title>
+    <style>
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+    background: url('man.png') no-repeat center center fixed; /* Set your background image here */
+    background-size: cover; /* Ensures the background image covers the whole page */
+    background-color: #080523;
+    color:black; /* Light text color for contrast */
+    margin: 0;
+    padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #ecf0f1; /* Light heading color */
+        }
+
+        form {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent white background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        .job-card { 
+            padding: 15px; 
+            margin: 10px; 
+            border: 1px solid #ddd; 
+            border-radius: 5px; 
+            background: rgba(255, 255, 255, 0.9); /* Slightly transparent job card background */
+        }
+
+        label {
+            font-weight: bold; /* Make the label text bold */
+        }
+
+        button {
+            background-color: #3498db; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s; /* Smooth transition for hover */
+            width: 100%; /* Full width button */
+        }
+
+        button:hover {
+            background-color: #2980b9; /* Darker on hover */
+        }
+
+        #job-results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Job Matches</h1>
+    <form id="upload-form" enctype="multipart/form-data">
+        <label>Upload Your Resume (PDF):</label>
+        <input type="file" name="resume" id="resume" accept=".pdf" required>
+        <button type="submit">Find Matches</button>
+    </form>
+    
+    <div id="job-results"></div>
+
+    <script>
+        document.getElementById("upload-form").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData();
+            formData.append("resume", document.getElementById("resume").files[0]);
+
+            const response = await fetch("/", {
+                method: "POST",
+                body: formData
+            });
+            const jobs = await response.json();
+            displayJobs(jobs);
+        });
+
+        function displayJobs(jobs) {
+            const jobResults = document.getElementById("job-results");
+            jobResults.innerHTML = "";
+            jobs.forEach(job => {
+                jobResults.innerHTML += `
+                    <div class="job-card">
+                        <h2>${job.title}</h2>
+                        <p><strong>Company:</strong> ${job.company}</p>
+                        <p><strong>Location:</strong> ${job.location}</p>
+                        <p><strong>Skills Required:</strong> ${job.skills.join(", ")}</p>
+                        <p>${job.description}</p>
+                    </div>
+                `;
+            });
+        }
+    </script>
+</body>
+</html>

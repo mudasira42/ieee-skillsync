@@ -1,0 +1,71 @@
+/* Main container to hold the entire content */
+.container {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Full height of viewport */
+    background: url('man.png') no-repeat center center fixed; /* Replace with your background image */
+    background-size: cover;
+}
+
+/* Box that holds the Job Matches section and form */
+.content-box {
+    background-color: rgba(255, 255, 255, 0.9); /* Transparent box */
+    padding: 30px;
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+    max-width: 600px; /* Max width of box */
+    width: 100%; /* Full width */
+    text-align: center; /* Center content inside */
+}
+
+/* Description box styling */
+.description-box {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white background */
+    border-radius: 8px;
+}
+
+/* Form section styles */
+.profile-container h1 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form styling */
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+input[type="file"] {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+/* Button styling */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    background-color: #3498db;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #2980b9;
+}

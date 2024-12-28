@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Decency Filter for Job Seekers</title>
+    <link rel="stylesheet" href="comp.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Company Decency Filter</h2>
+        <label for="role-select">Select a Job Role:</label>
+        <select id="role-select">
+            <option value="">Choose a role...</option>
+            <option value="Software Engineer">Software Engineer</option>
+            <option value="Product Manager">Product Manager</option>
+            <option value="Data Scientist">Data Scientist</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="Backend Developer">Backend Developer</option>
+<option value="Frontend Developer">Frontend Developer</option>
+<option value="Data Analyst">Data Analyst</option>
+<option value="Data Engineer">Data Engineer</option>
+<option value="Graphic Designer">Graphic Designer</option>
+<option value="Illustrator">Illustrator</option>
+<option value="Digital Marketer">Digital Marketer</option>
+<option value="Sales Associate">Sales Associate</option>
+<option value="Marketing Manager">Marketing Manager</option>
+<option value="HR Manager">HR Manager</option>
+<option value="Recruiter">Recruiter</option>
+<option value="HR Coordinator">HR Coordinator</option>
+<option value="Financial Analyst">Financial Analyst</option>
+<option value="Accountant">Accountant</option>
+<option value="Investment Banker">Investment Banker</option>
+<option value="Mechanical Engineer">Mechanical Engineer</option>
+<option value="Civil Engineer">Civil Engineer</option>
+<option value="Electrical Engineer">Electrical Engineer</option>
+<option value="Nurse">Nurse</option>
+<option value="Doctor">Doctor</option>
+<option value="Medical Technician">Medical Technician</option>
+
+        </select>
+        
+        <label for="decency-filter">Decency Score Minimum:</label>
+        <input type="range" id="decency-filter" min="0" max="10" value="5" oninput="showScore(this.value)">
+        <span id="score-display">5</span>
+        
+        <button onclick="filterCompanies()">Filter Companies</button>
+        
+        <div id="results">
+            <h3>Matching Companies:</h3>
+            <ul id="company-list"></ul>
+        </div>
+    </div>
+
+    <script src="comp.js"></script>
+</body>
+</html>
